@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Amarjothi</title>
+	<link rel="stylesheet" href="css/themes/default/jquery.mobile-1.4.4.min.css">
+    <link rel="stylesheet" href="css/colorbox.css" />
+    <style type="text/css">	
+				
+		#mycloud {width:400px;margin: 0 auto;}	
+		#mycloud div, img, p{cursor: pointer;}
+		#mycloud img{padding:3px;background-color:#fff;	border:1px solid #777;}				
+		#mycloud img:hover{border:2px solid #222;margin:-1px;}
+	
+	</style>
+	<link rel="shortcut icon" href="favicon.ico">
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.mobile-1.4.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery.tags-cloud.min.js"></script>
+    <script src="js/jquery.colorbox-min.js"></script>
+    <script type="text/javascript">
+	   
+		$(document).ready(function(){
+	
+			//dinamically add 50 images
+			var txt='';
+			for(var i=1;i<=21;i++){
+				var n=i;
+				txt+='<img data-onclick="'+n+'" src="logo/'+n+'.png" width="200">';
+			}
+			$('#mycloud').append(txt);
+	
+	
+	
+			//START cloud			
+			$('#mycloud').cloud({
+
+				//all settings are optional, you can delete them or provide your values
+			
+				hwratio				: 1,		//height/width ratio
+				enable				: true,	//enable effect on mouse move
+				draggable			: true,		//enable mouse drag               <------ ENABLE DRAG
+				gravitydriven		: true,	//enable effect on mobile device movement
+				template			: 1,		//number of template (0-10) or function
+				scale				: 0.9,		//scale template
+				maxspeed			: 4,		//maximum rotation speed
+				attenuation			: 0.01,		//attenuation
+				perspective			: 1.0,		//perspective koefficient
+				sensitivityx		: 0.05,		//if sensitivity=0 no effect will be applied
+				sensitivityy		: 0.05,		//negative values invert mouse			
+				fadein				: 800,		//fadein on start (in ms)
+				fog					: 0.8,		//fog index
+				zsort				: true,		//sort by z
+				fps					: 60,		//default fps limit
+				fpsmobile			: 30,		//default fps limit on mobile devices
+				imgscale			: 0,		//scale images (works only if they are direct children of cloud)
+				onclick             : onclickFunction	//function to execute on tag click
+				
+			}); 
+
+			
+		});
+
+		
+		//show modal window on tag click
+		function onclickFunction(v) {
+			//v = value of data-onclick attribute (see below)			
+			$.colorbox({href:"logo/"+v+".png", opacity:0.5, scalePhotos:true, maxWidth:'90%', maxHeight:'90%', initialWidth:'50%'});		
+		};
+		
+	</script>
+</head>
+<body>
+<div data-role="page" id="staffpage">
+
+	<div data-role="header">
+		<h1>Amarjothi <small>Spinning Mills Ltd</small></h1>
+		<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+		<a href="#"><img src="images/logo.png" width="50" /></a>
+		
+	</div><!-- /header -->
+
+	<div data-role="panel" data-display="push" data-theme="b" id="nav-panel">
+
+		<ul data-role="listview">
+            <li data-icon="delete"><a href="#" data-rel="close">Close menu</a></li>
+                <li><a href="./">Home</a></li>
+                <li><a href="about.html" data-ajax="false">About</a></li>
+                <li><a href="clients.html" data-ajax="false">Clients</a></li>
+                <li><a href="friendly.html">We are Eco friendly</a></li>
+                <li><a href="certifications.html">Certifications</a></li>
+                <li><a href="contacts.html" data-ajax="false">Contacts</a></li>
+		</ul>
+
+	</div>
+
+	<div class="ui-content" role="main">
+
+		<br>
+		<br>
+		<br>
+
+	<div id="mycloud"> 
+			
+		</div>
+		
+
+		
+
+	</div><!-- /content -->
+
+
+</div><!-- /page -->
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Amarjothi</title>
+    
+	<link rel="stylesheet" href="css/themes/default/jquery.mobile-1.4.4.min.css">
+	<link rel="shortcut icon" href="favicon.ico">
+	<script src="js/jquery.js"></script>
+    <script src="_assets/js/index.js"></script>
+	<script src="js/jquery.mobile-1.4.4.min.js"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script>
+	/*
+	 * Google Maps documentation: http://code.google.com/apis/maps/documentation/javascript/basics.html
+	 * Geolocation documentation: http://dev.w3.org/geo/api/spec-source.html
+	 */
+
+	$( document ).on( "pagecreate", "#map-page", function() {
+		var height = $(window).height();
+		height = height-40;
+		$('#map-canvas').css('height', height+'px');
+		var defaultLatLng = new google.maps.LatLng(11.130084379765883, 78.78027458437509);  // Default to Hollywood, CA when no geolocation support
+
+		if ( navigator.geolocation ) {
+			function success(pos) {
+				// Location found, show map with these coordinates
+				drawMap(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+			}
+
+			function fail(error) {
+				drawMap(defaultLatLng);  // Failed to find location, show default map
+			}
+
+			// Find the users current position.  Cache the location for 5 minutes, timeout after 6 seconds
+			navigator.geolocation.getCurrentPosition(success, fail, {maximumAge: 500000, enableHighAccuracy:true, timeout: 6000});
+		} else {
+			drawMap(defaultLatLng);  // No geolocation support, show default map
+		}
+
+		function drawMap(latlng) {
+			var myOptions = {
+				zoom: 10,
+				center: latlng,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+
+			var map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
+
+			// Add an overlay to the map of current lat/lng
+			var marker = new google.maps.Marker({
+				position: latlng,
+				map: map,
+				title: "Greetings!"
+			});
+		}
+
+	});
+	</script>
+    <style>
+		#map-canvas { width: 100%; height: 100%; padding: 0; }
+	</style>
+</head>
+<body>
+<div data-role="page" id="map-page">
+
+	<div data-role="header">
+		<h1>Amarjothi <small>Spinning Mills Ltd</small></h1>
+		<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+		<a href="#" style="z-index: 1;"><img src="images/logo.png" width="50" /></a>
+		
+	</div><!-- /header -->
+
+	<div data-role="panel" data-display="push" data-theme="b" id="nav-panel">
+
+		<ul data-role="listview">
+            <li data-icon="delete"><a href="#" data-rel="close">Close menu</a></li>
+                <li><a href="./">Home</a></li>
+                <li><a href="about.html" data-ajax="false">About</a></li>
+                <li><a href="clients.html" data-ajax="false">Clients</a></li>
+                <li><a href="friendly.html">We are Eco friendly</a></li>
+                <li><a href="certifications.html">Certifications</a></li>
+                <li><a href="contacts.html" data-ajax="false">Contacts</a></li>
+		</ul>
+
+	</div>
+
+	<div class="ui-content" role="main" id="map-canvas">
+
+		
+
+		
+
+		
+
+	</div><!-- /content -->
+
+
+</div><!-- /page -->
+
+</body>
+</html>

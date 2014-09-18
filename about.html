@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Amarjothi</title>
+	<link rel="stylesheet" href="css/themes/default/jquery.mobile-1.4.4.min.css">
+    <link rel="stylesheet" href="css/font.css">
+    <link href="css/content_slider_style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
+    
+	<link rel="shortcut icon" href="favicon.ico">
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.mobile-1.4.4.min.js"></script>
+    <script src="js/jquery.content_slider.min.js" type="text/javascript"></script>
+	<script src="js/jquery.mousewheel.js" type="text/javascript"></script>
+    <script src="js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/jquery.animate-colors.js" type="text/javascript"></script>
+    <script src="js/additional_content.js" type="text/javascript"></script>
+    <script type="text/javascript">
+	(function($){
+		$(document).ready(function() {
+			var image_array = new Array();
+			image_array = [
+				{image: 'images/chairman-thumb.jpg', link_url: 'images/chairman-thumb.jpg', link_rel: 'prettyPhoto'},
+					// image for the first layer, goes with the text from id="sw0"
+				{image: 'images/jmd-thumb.jpg', link_url: 'images/jmd-thumb.jpg', link_rel: 'prettyPhoto'},
+					// image for the second layer, goes with the text from id="sw1"
+				{image: 'images/md-thumb.jpg', link_url: 'images/md-thumb.jpg', link_rel: 'prettyPhoto'}
+			];
+			$('#slider1').content_slider({		// bind plugin to div id="slider1"
+				map : image_array,				// pointer to the image map
+				max_shown_items: 3,				// number of visible circles
+				hv_switch: 0,					// 0 = horizontal slider, 1 = vertical
+				active_item: 0,					// layer that will be shown at start, 0=first, 1=second...
+				wrapper_text_max_height: 450,	// height of widget, displayed in pixels
+				middle_click: 1,				// when main circle is clicked: 1 = slider will go to the previous layer/circle, 2 = to the next
+				under_600_max_height: 1200,		// if resolution is below 600 px, set max height of content
+				border_radius:	-1,				// -1 = circle, 0 and other = radius
+				automatic_height_resize: 1,
+				border_on_off: 0,
+				allow_shadow: 0
+			});
+		});
+	})(jQuery);
+</script>
+</head>
+<body>
+<div data-role="page" id="aboutpage">
+
+	<div data-role="header">
+		<h1>Amarjothi <small>Spinning Mills Ltd</small></h1>
+		<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+		<a href="#"><img src="images/logo.png" width="50" /></a>
+		
+	</div><!-- /header -->
+
+	<div data-role="panel" data-display="push" data-theme="b" id="nav-panel">
+
+		<ul data-role="listview">
+            <li data-icon="delete"><a href="#" data-rel="close">Close menu</a></li>
+                <li><a href="./">Home</a></li>
+                <li><a href="about.html" data-ajax="false">About</a></li>
+                <li><a href="clients.html" data-ajax="false">Clients</a></li>
+                <li><a href="friendly.html">We are Eco friendly</a></li>
+                <li><a href="certifications.html">Certifications</a></li>
+                <li><a href="contacts.html" data-ajax="false">Contacts</a></li>
+		</ul>
+
+	</div>
+
+	<div class="ui-content" role="main">
+
+		
+	<div class="content_slider_wrapper" id="slider1">
+
+	<div class="circle_slider_text_wrapper" id="sw0" style="display: none;">
+	<!-- content for the first layer, id="sw0" -->
+		<div class="content_slider_text_block_wrap">
+		<!-- "content_slider_text_block_wrap" is a div class for custom content -->
+			<h3>N. RAJAN</h3><br /><br />
+			
+			<span><span class="bold">Position: </span>Chairman</span><br />
+			<span><span class="bold">About: </span> <strong>Started in 1992, the Amarjothi Group of Companies came into existence with a vision to produce color mélange yarn for the readymade garment industry in India and for global brands too. Today, with the latest technology and a great team, Amarjothi has grown in leaps and bounds to be appreciated globally as a Company that strives for excellence at any point of time.</strong><br>
+We will relentlessly strive to be one ahead of competition and reaffirm ourselves to be sustainable in maintaining that position.<br>
+<br>
+Amarjothi is now the unparalleled leader in the realm of mélange yarn in this part of the world.<br>
+<strong>And our commitment to excellence in quality and customer satisfaction will carry on...</strong> </span><br /><br /><br />
+		</div>
+		<div class="clear"></div>	
+	</div>
+
+	<div class="circle_slider_text_wrapper" id="sw1" style="display: none;">
+	<!-- content for the second layer, id="sw1" -->
+		<div class="content_slider_text_block_wrap">
+		<!-- "content_slider_text_block_wrap" is a div class for custom content -->
+			<h3>R. JAI CHANDER</h3><br /><br />
+			
+			<span><span class="bold">Position: </span>Joint Managing Director</span><br />
+			<span><span class="bold">About: </span> <strong>'The choice is ours – to adopt mediocrity and survive, or opt for excellence and flourish.'</strong><br>
+<br>
+At Amarjothi, with pioneering ideas, excellence in creativity and constant improvement in quality at every stage, we strive to maintain reliability and consistency in the production of color mélange yarn to the exactitude of our customer’s requirements. On time, every time.<br>
+The use of world class branded dyes and chemicals that meet international parameters has been our reputation, without any compromise on quality. Our constant endeavor to be eco-friendly to Nature comes to us naturally by utilizing innovative technology with appropriate Certifications and stringent quality control measures.<br>
+Any enterprise is never a destination – it’s always a journey. Nothing stops us from savoring and celebrating the victory of every single milestone.<br>
+At Amarjothi, we’re still counting…. </strong> </span><br /><br /><br />
+		</div>
+		<div class="clear"></div>	
+	</div>
+
+<div class="circle_slider_text_wrapper" id="sw2" style="display: none;">
+	<!-- content for the third layer, id="sw2" -->
+		<div class="content_slider_text_block_wrap">
+		<!-- "content_slider_text_block_wrap" is a div class for custom content -->
+			<h3>R. PREM CHANDER</h3><br /><br />
+			
+			<span><span class="bold">Position: </span>Managing Director </span><br />
+			<span><span class="bold">About: </span> <strong>At Amarjothi, success is not pursued; success ensues. It flows as the unintended byproduct of efforts concentrated in the direction of a worthy cause.</strong><br>
+<br>
+Today, our flagship Company, Amarjothi Spinning Mills Ltd., stands towering as one of the leading multi brand color mélange and dyed yarn producers in the Asian continent.<br>
+Globally, we are continually preferred for our knitting, weaving and color mélange yarn with more than a billion shades by renowned brands of high end fashion wear for the quality and value added features. With constant up gradation, team effort and commitment to quality, we have a world-class Company here that caters and nurtures the lives of multitude of people by the sheer excellence of its products. It derives a lot of satisfaction to make a positive difference in the world through our perpetual quest for excellence.<br>
+The Amarjothi Group is poised to be a trend setter and a global player, waiting in the wings to fly higher and higher…. </strong> </span><br /><br /><br />
+		</div>
+		<div class="clear"></div>	
+	</div>
+
+
+
+</div>
+		
+
+		
+
+	</div><!-- /content -->
+
+
+</div><!-- /page -->
+
+</body>
+</html>
