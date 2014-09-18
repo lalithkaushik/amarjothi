@@ -16,6 +16,7 @@
 		    $listSwitch = $( "#list-switch" ),
 			$map = $( "#map-canvas" ),
 	        $list = $( "#list-canvas" );
+			$map.gmap();
 
 	    $mapSwitch.on( "click", function( e ){
 	       	$map.show();
@@ -88,7 +89,7 @@
 
 	</div>
 
-		<div data-role="header">
+		<!--<div data-role="header">
 			<div class="segmented-control ui-bar-d">
 		 	<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
 	  			<input type="radio" name="switch" id="list-switch" checked="true">
@@ -97,12 +98,12 @@
 	         	<label for="map-switch">Map</label>
 		    </fieldset>
 			</div>
-		</div>
+		</div>-->
         
 		
 	<div role="main" class="ui-content ui-content-list">
     
-	        <div id="list-canvas">
+	        <div id="list-canvas" style="display:none;">
 	            <ul id="list-results" data-role="listview">
 	            	
 	            	<li data-marker-info="11.1265406,77.32095049999998">
@@ -167,7 +168,7 @@ TN, India</p>
 				</ul>
 			</div>
 		</div>
-		<div role="main" class="ui-content" id="map-canvas" data-initial-view="11.2667127,77.40898170000003,15" style="display:none;"></div>
+		<div role="main" class="ui-content" id="map-canvas" data-initial-view="11.2667127,77.40898170000003,15" ></div>
 		
 
 		
